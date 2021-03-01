@@ -1,0 +1,322 @@
+<!doctype html>
+<html amp lang="en-uk">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Larissa is online and this is the result">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://www.larissais.online/index.html">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <style amp-custom>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            color: #666;
+        }
+
+        #sidebar {
+            background: #333;
+            padding: 20px;
+        }
+
+        section {
+            display: flex;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        aside {
+            padding-top: 20px;
+        }
+
+        main {
+            flex: 35%;
+            padding: 20px 0;
+        }
+
+        #sidebar-toggle {
+            color: #fff;
+            background: transparent;
+            border: none;
+            font-size: x-large;
+            padding: 20px 0 0 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        li.active {
+            background: rgba(200, 200, 200, 0.30);
+            border-radius: 3px;
+            padding: 0;
+            margin: 10px 0;
+            width: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #bbb;
+        }
+
+        a.active {
+            color: #7bc2b3;
+            font-weight: bold;
+            padding: 0 3px;
+        }
+
+        a.active .reserved-word {
+            color: #fd7cb2;
+        }
+
+        .menu-pre-text {
+            font-size: small;
+            color: #bbb;
+        }
+
+        article {
+            flex: 65%;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+
+        article h1 {
+            color: #53b1ca;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        footer {
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 10px;
+            width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        form {
+            width: fit-content;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        label {
+            vertical-align: top;
+        }
+
+        input, textarea {
+            font-family: 'Source Code Pro', monospace;
+            margin: 5px 0;
+            width: 200px;
+        }
+
+        input[type=submit] {
+            border-radius: 3px;
+            border: none;
+            padding: 3px;
+            background: #fd7cb2;
+        }
+
+        form.amp-form-submit-success [submit-success] {
+            color: green;
+        }
+
+        form.amp-form-submit-error [submit-error] {
+            color: red;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 784px) {
+            section {
+                flex-wrap: wrap;
+            }
+
+            article {
+                flex: 100%;
+                flex-basis: 100%;
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 784px) {
+            main {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #sidebar-toggle {
+                display: none;
+            }
+        }
+    </style>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+    <link rel="canonical" href=".">
+    <title>Larissa is online</title>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Webpage",
+            "url": "https://www.larissais.online",
+            "name": "Larissa Barra",
+            "headline": "Larissa is online",
+            "description": "Larissa is online and this is the result",  
+            "image": [
+                "icon.svg"
+            ]
+        }
+    </script>
+</head>
+
+<body>
+    <amp-sidebar id="sidebar" class="desktop-sidebar" layout="nodisplay" side="left">
+        <nav toolbar="(min-width: 784px)" toolbar-target="target-element-desktop">
+            <ul>
+                <li class="active"><a href="#" class="active"><span class="menu-pre-text">Larissa <span
+                                class="reserved-word">is </span></span>... Who?</a></li>
+                <li><a href="professional.html"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                            </span></span>a professional</a></li>
+                <li><a href="techie.html"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                            </span></span>a techie</a></li>
+                <li><a href="artistic.html"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                            </span></span>artistic</a></li>
+            </ul>
+        </nav>
+    </amp-sidebar>
+    <section>
+        <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
+        <main>
+            <aside id="target-element-desktop" class="desktop-sidebar"></aside>
+        </main>
+
+        <article>
+            <h1>Larissa Barra</h1>
+            <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                    class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                metropolitan area of over 13 million inhabitants.</p>
+            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
+                back to its founding by the Romans, who named it Londinium.</p>
+        </article>
+    </section>
+
+    <footer amp-fx="float-in-bottom">
+        <form method="post" action-xhr="contact.php" target="_top">
+            <div class="ampstart-input inline-block relative mb3">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Hello, you" required>
+            </div>
+            <div class="ampstart-input inline-block relative mb3">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@something">
+            </div>
+            <div class="ampstart-input inline-block relative mb3">
+                <label>Message</label>
+                <textarea name="enquiry" placeholder="What's your message?"></textarea>
+            </div>
+            <input type="submit" value="Ping me" class="ampstart-btn caps">
+            <div submit-success>
+                <template type="amp-mustache">
+                    Thanks {{name}}! I'll reply shortly.
+                </template>
+            </div>
+            <div submit-error>
+                <template type="amp-mustache">
+                    Oops. Please try again, {{name}}.
+                </template>
+            </div>
+        </form>
+    </footer>
+</body>
+
+</html>
