@@ -16,9 +16,7 @@
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js">
     </script>
-    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
-    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
-
+    
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700&display=swap"
         rel="stylesheet">
@@ -115,6 +113,10 @@
         article h1 {
             color: #53b1ca;
             font-family: 'Source Code Pro', monospace;
+        }
+
+        article p {
+            color: #999;
         }
 
         footer {
@@ -269,28 +271,23 @@
     <amp-sidebar id="sidebar" class="desktop-sidebar" layout="nodisplay" side="left">
         <nav toolbar="(min-width: 784px)" toolbar-target="target-element-desktop">
             <ul>
-                <li class="active"><a href="#page-who" class="active"><span class="menu-pre-text">Larissa <span
+                <li class="active"><a href="#page-who" class="active menu-link" on="tap:page-who.scrollTo()"><span class="menu-pre-text">Larissa <span
                                 class="reserved-word">is </span></span>... Who?</a></li>
-                <li><a href="#page-professional"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li><a href="#page-professional" class="menu-link"  on="tap:page-professional.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a professional</a></li>
-                <li><a href="#page-techie"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li><a href="#page-techie" class="menu-link"  on="tap:page-techie.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a techie</a></li>
-                <li><a href="#page-artistic"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li><a href="#page-artistic" class="menu-link"  on="tap:page-artistic.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>artistic</a></li>
             </ul>
         </nav>
     </amp-sidebar>
+    <amp-script data-ampdevmode script="menu-highlight" layout="container">
     <section>
         <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
         <aside id="target-element-desktop" class="desktop-sidebar"></aside>
         <main>
             <article id="page-who">
-                <amp-position-observer
-                    intersection-ratios="1"
-                    on="enter:menu-highlight"
-                    layout="nodisplay"
-                >
-                </amp-position-observer>
                 <h1>Larissa Barra</h1>
                 <p>London <span class="reserved-word">is </span>the capital city of England. It <span
                         class="reserved-word">is </span>the most populous city in the United Kingdom, with a
@@ -305,12 +302,6 @@
             </article>
 
             <article id="page-professional">
-                <amp-position-observer
-                    intersection-ratios="1"
-                    on="enter:menu-highlight"
-                    layout="nodisplay"
-                >
-                </amp-position-observer>
                 <h1>Larissa Barra</h1>
                 <p>London <span class="reserved-word">is </span>the capital city of England. It <span
                         class="reserved-word">is </span>the most populous city in the United Kingdom, with a
@@ -325,12 +316,6 @@
             </article>
 
             <article id="page-techie">
-                <amp-position-observer
-                    intersection-ratios="1"
-                    on="enter:menu-highlight"
-                    layout="nodisplay"
-                >
-                </amp-position-observer>
                 <h1>Larissa Barra</h1>
                 <p>London <span class="reserved-word">is </span>the capital city of England. It <span
                         class="reserved-word">is </span>the most populous city in the United Kingdom, with a
@@ -345,12 +330,6 @@
             </article>
 
             <article id="page-artistic">
-                <amp-position-observer
-                    intersection-ratios="1"
-                    on="enter:menu-highlight"
-                    layout="nodisplay"
-                >
-                </amp-position-observer>
                 <h1>Larissa Barra</h1>
                 <p>London <span class="reserved-word">is </span>the capital city of England. It <span
                         class="reserved-word">is </span>the most populous city in the United Kingdom, with a
@@ -365,6 +344,7 @@
             </article>
         </main>
     </section>
+    </amp-script>
 
     <footer amp-fx="float-in-bottom">
         <form method="post" action-xhr="contact.php" target="_top">
@@ -393,11 +373,6 @@
             </div>
         </form>
     </footer>
-
-    <amp-script script="menu-highlight"></amp-script>
-    <script id="menu-highlight" type="text/plain" target="amp-script">
-        console.log("ha!");
-    </script>
 </body>
 
 </html>
