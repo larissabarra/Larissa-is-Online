@@ -16,6 +16,7 @@
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js">
     </script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700&display=swap"
@@ -71,31 +72,34 @@
             padding: 0;
         }
 
-        li {
-            width: 100%;
-            padding: 20px 0;
-        }
-
-        li.active {
-            background: rgba(200, 200, 200, 0.30);
-            border-radius: 3px;
-            padding: 0;
-            margin: 20px 0;
-            width: auto;
-        }
-
         a {
             text-decoration: none;
             color: #bbb;
         }
 
-        a.active {
+        li {
+            width: 100%;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li.active {
+            background: rgba(200, 200, 200, 0.30);
+            border-radius: 3px;
+            width: auto;
+        }
+
+        li.inactive {
+            background: transparent;
+        }
+
+        li.active a {
             color: #7bc2b3;
             font-weight: bold;
             padding: 0 3px;
         }
 
-        a.active .reserved-word {
+        li.active .reserved-word {
             color: #fd7cb2;
         }
 
@@ -272,13 +276,13 @@
     <amp-sidebar id="sidebar" class="desktop-sidebar" layout="nodisplay" side="left">
         <nav toolbar="(min-width: 784px)" toolbar-target="target-element-desktop">
             <ul>
-                <li class="active"><a href="#page-who" class="active menu-link" on="tap:page-who.scrollTo()"><span class="menu-pre-text">Larissa <span
+                <li [class]="pageWho ? 'active' : 'inactive'" class="active"><a href="#page-who" class="active menu-link" on="tap:page-who.scrollTo(),AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})"><span class="menu-pre-text">Larissa <span
                                 class="reserved-word">is </span></span>... Who?</a></li>
-                <li><a href="#page-professional" class="menu-link"  on="tap:page-professional.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageProfessional ? 'active' : 'inactive'"><a href="#page-professional" class="menu-link"  on="tap:page-professional.scrollTo(),AMP.setState({pageWho: false, pageProfessional: true, pageTechie: false, pageArtistic: false})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a professional</a></li>
-                <li><a href="#page-techie" class="menu-link"  on="tap:page-techie.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageTechie ? 'active' : 'inactive'"><a href="#page-techie" class="menu-link"  on="tap:page-techie.scrollTo(),AMP.setState({pageWho: false, pageProfessional: false, pageTechie: true, pageArtistic: false})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a techie</a></li>
-                <li><a href="#page-artistic" class="menu-link"  on="tap:page-artistic.scrollTo()"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageArtistic ? 'active' : 'inactive'"><a href="#page-artistic" class="menu-link"  on="tap:page-artistic.scrollTo(),AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageArtistic: true})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>artistic</a></li>
             </ul>
         </nav>
