@@ -18,7 +18,8 @@
     </script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-    
+    <script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700&display=swap"
         rel="stylesheet">
@@ -30,8 +31,9 @@
             --space-2: 2rem;
 
             --box-shadow-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-            0 1px 1px -1px rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                0 1px 1px -1px rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
         }
+
         * {
             box-sizing: border-box;
         }
@@ -139,6 +141,16 @@
             font-family: 'Source Code Pro', monospace;
         }
 
+        article h2 {
+            color: #fd7cb2;
+            font-size: 1em;
+        }
+
+        article h3 {
+            color: #333;
+            font-size: 0.9em;
+        }
+
         article p {
             color: #999;
         }
@@ -189,7 +201,9 @@
 
         /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
         @media (max-width: 784px) {
-            section, main {
+
+            section,
+            main {
                 flex-wrap: wrap;
             }
 
@@ -304,79 +318,102 @@
     <amp-sidebar id="sidebar" class="desktop-sidebar" layout="nodisplay" side="left">
         <nav toolbar="(min-width: 784px)" toolbar-target="target-element-desktop">
             <ul>
-                <li [class]="pageWho ? 'active' : 'inactive'" class="active"><a href="#page-who" class="active menu-link" on="tap:page-who.scrollTo,AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})"><span class="menu-pre-text">Larissa <span
-                                class="reserved-word">is </span></span>... Who?</a></li>
-                <li [class]="pageProfessional ? 'active' : 'inactive'"><a href="#page-professional" class="menu-link"  on="tap:page-professional.scrollTo,AMP.setState({pageWho: false, pageProfessional: true, pageTechie: false, pageArtistic: false})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageWho ? 'active' : 'inactive'" class="active"><a href="#page-who"
+                        class="active menu-link"
+                        on="tap:page-who.scrollTo,AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is </span></span>... Who?</a></li>
+                <li [class]="pageProfessional ? 'active' : 'inactive'"><a href="#page-professional" class="menu-link"
+                        on="tap:page-professional.scrollTo,AMP.setState({pageWho: false, pageProfessional: true, pageTechie: false, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a professional</a></li>
-                <li [class]="pageTechie ? 'active' : 'inactive'"><a href="#page-techie" class="menu-link"  on="tap:page-techie.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: true, pageArtistic: false})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageTechie ? 'active' : 'inactive'"><a href="#page-techie" class="menu-link"
+                        on="tap:page-techie.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: true, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>a techie</a></li>
-                <li [class]="pageArtistic ? 'active' : 'inactive'"><a href="#page-artistic" class="menu-link"  on="tap:page-artistic.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageArtistic: true})"><span class="menu-pre-text">Larissa <span class="reserved-word">is
+                <li [class]="pageArtistic ? 'active' : 'inactive'"><a href="#page-artistic" class="menu-link"
+                        on="tap:page-artistic.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageArtistic: true})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>artistic</a></li>
             </ul>
         </nav>
     </amp-sidebar>
     <amp-script data-ampdevmode script="menu-highlight" layout="container">
-    <section>
-        <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
-        <aside id="target-element-desktop" class="desktop-sidebar"></aside>
-        <main>
-            <article id="page-who">
-                <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
+        <section>
+            <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
+            <aside id="target-element-desktop" class="desktop-sidebar"></aside>
+            <main>
+                <article id="page-who">
+                    <h1>Larissa Barra</h1>
                     <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
-            </article>
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                </article>
 
-            <article id="page-professional">
-                <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
+                <article id="page-professional">
+                    <h1>Larissa Barra</h1>
                     <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
-            </article>
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                </article>
 
-            <article id="page-techie">
-                <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
-            </article>
+                <article id="page-techie">
+                    <h1>A techie</h1>
+                    <p>In the information era, a techie shares knowledge. I like to do that by speaking in meet-ups and
+                        conferences about many different topics. I like to think that there's no talk too simple or too
+                        advanced - if one person in the audience learns something, then that talk was worth it.</p>
+                    <p>Public speaking, as a woman in IT, is one of my favourite ways to challenge some boundaries:
+                        personal ones, constantly proving to myself that I am knowledgeable enough to do it, even not
+                        knowing everything; and industry ones, showing that women are as technical as anyone else.</p>
+                    <h2>Here are some videos:</h2>
+                    <h3>NSSpain - remote edition 2020 (Q/A <a
+                        href="https://larissabarra.medium.com/nsspain-2020-q-a-about-platform-teams-aaee64b8a3e1" target="_blank">here</a>)</h3>
+                    <amp-vimeo data-videoid="479879724" layout="responsive" width="16" height="9"></amp-vimeo>
+                    <h3>CocoaHeads Brazil - Belo Horizonte, December 2019 (in Portuguese)</h3>
+                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="pyhQnYPR3wg">
+                    </amp-youtube>
+                    <h3>BA: Swiftable - Buenos Aires, November 2019</h3>
+                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="lU6ywuZRw0U">
+                    </amp-youtube>
+                    <h3>NSBrazil - São Paulo, November 2019</h3>
+                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="OgiWj-Ygrig">
+                    </amp-youtube>
+                </article>
 
-            <article id="page-artistic">
-                <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
+                <article id="page-artistic">
+                    <h1>Larissa Barra</h1>
                     <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-                    back to its founding by the Romans, who named it Londinium.</p>
-            </article>
-        </main>
-    </section>
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                        metropolitan area of over 13 million inhabitants.</p>
+                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                        going
+                        back to its founding by the Romans, who named it Londinium.</p>
+                </article>
+            </main>
+        </section>
     </amp-script>
 
     <footer amp-fx="float-in-bottom">
