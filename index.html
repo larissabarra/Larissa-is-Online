@@ -23,212 +23,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700&display=swap"
         rel="stylesheet">
-    <style amp-custom>
-        :root {
-            --color-primary: #53b1ca;
-            --color-text-light: #fff;
-
-            --space-2: 2rem;
-
-            --box-shadow-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-                0 1px 1px -1px rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Source Code Pro', monospace;
-            color: #666;
-        }
-
-        #sidebar {
-            background: #fff;
-            padding: 20px;
-        }
-
-        #target-element-desktop nav {
-            position: fixed;
-            top: calc(50% - 250px);
-        }
-
-        section {
-            display: flex;
-            max-width: 80%;
-            margin: 0 auto;
-        }
-
-        aside {
-            flex: 35%;
-            padding: 20px 0;
-        }
-
-        main {
-            flex: 65%;
-            display: flex;
-            flex-direction: column;
-            padding: 20px 0;
-        }
-
-        #sidebar-toggle {
-            color: #fff;
-            font-size: 1.4em;
-            box-shadow: var(--box-shadow-1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            outline: none;
-            background: var(--color-primary);
-            z-index: 999;
-            bottom: var(--space-2);
-            right: var(--space-2);
-            position: fixed;
-            opacity: 1;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #bbb;
-        }
-
-        li {
-            width: 100%;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        li.active {
-            background: rgba(200, 200, 200, 0.25);
-            border-radius: 3px;
-            width: auto;
-        }
-
-        li.inactive {
-            background: transparent;
-        }
-
-        li.active a {
-            color: #53b1ca;
-            font-weight: bold;
-            padding: 0 3px;
-        }
-
-        li.active .reserved-word {
-            color: #fd7cb2;
-        }
-
-        .menu-pre-text {
-            font-size: small;
-            color: #bbb;
-        }
-
-        article {
-            flex: 100%;
-            flex-basis: 100%;
-            min-height: 100vh;
-            line-height: 1.5;
-        }
-
-        article h1 {
-            color: #53b1ca;
-            font-family: 'Source Code Pro', monospace;
-        }
-
-        article h2 {
-            color: #fd7cb2;
-            font-size: 1em;
-        }
-
-        article h3 {
-            color: #333;
-            font-size: 0.9em;
-        }
-
-        article p {
-            color: #999;
-        }
-
-        footer {
-            background: #fff;
-            border-top: 1px solid #eee;
-            padding: 10px;
-            width: 100vw;
-            overflow: hidden;
-            position: fixed;
-            bottom: 0;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        form {
-            width: fit-content;
-            margin: 0 auto;
-            text-align: right;
-        }
-
-        label {
-            vertical-align: top;
-        }
-
-        input,
-        textarea {
-            font-family: 'Source Code Pro', monospace;
-            margin: 5px 0;
-            width: 200px;
-        }
-
-        input[type=submit] {
-            border-radius: 3px;
-            border: none;
-            padding: 3px;
-            background: #fd7cb2;
-        }
-
-        form.amp-form-submit-success [submit-success] {
-            color: green;
-        }
-
-        form.amp-form-submit-error [submit-error] {
-            color: red;
-        }
-
-        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-        @media (max-width: 784px) {
-
-            section,
-            main {
-                flex-wrap: wrap;
-            }
-
-            footer {
-                padding: 10px 20px;
-                justify-content: start;
-            }
-
-            form {
-                margin: 0;
-            }
-        }
-
-        @media (min-width: 784px) {
-            aside {
-                display: flex;
-                flex-direction: row;
-                height: 100vh;
-            }
-
-            #sidebar-toggle {
-                display: none;
-            }
-        }
-    </style>
     <style amp-boilerplate>
         body {
             -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -296,6 +90,231 @@
             }
         </style>
     </noscript>
+    <style amp-custom>
+        :root {
+            --color-primary: #53b1ca;
+            --color-text-light: #fff;
+
+            --space-2: 2rem;
+
+            --box-shadow-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+                0 1px 1px -1px rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            color: #666;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #sidebar {
+            background: #fff;
+            padding: 20px;
+        }
+
+        #target-element-desktop nav {
+            position: fixed;
+            top: calc(50% - 250px);
+        }
+
+        section {
+            display: flex;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        aside {
+            flex: 35%;
+            padding: 20px 0;
+        }
+
+        main {
+            flex: 65%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        #sidebar-toggle {
+            color: #fff;
+            font-size: 1.4em;
+            box-shadow: var(--box-shadow-1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            background: var(--color-primary);
+            z-index: 999;
+            bottom: var(--space-2);
+            right: var(--space-2);
+            position: fixed;
+            opacity: 1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: block;
+        }
+
+        nav a {
+            color: #bbb;
+        }
+
+        li {
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li.active {
+            background: rgba(200, 200, 200, 0.25);
+            border-radius: 3px;
+            width: fit-content;
+        }
+
+        li.inactive {
+            background: transparent;
+        }
+
+        li.active a {
+            color: #53b1ca;
+            font-weight: bold;
+            padding: 0 3px;
+        }
+
+        li.active .reserved-word {
+            color: #fd7cb2;
+        }
+
+        .menu-pre-text {
+            font-size: small;
+            color: #bbb;
+        }
+
+        article {
+            flex: 100%;
+            flex-basis: 100%;
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        article::after {
+            margin-bottom: 20%;
+            content: '';
+            display: block;
+        }
+
+        article h1 {
+            color: #53b1ca;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        article h2 {
+            color: #fd7cb2;
+            font-size: 1em;
+        }
+
+        article h3 {
+            color: #333;
+            font-size: 0.9em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        article h3::before {
+            margin-top: 40px;
+            content: '';
+            display: block;
+        }
+
+        article p {
+            color: #999;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        article a {
+            color: #fd7cb2;
+        }
+
+        footer {
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 10px;
+            width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        form {
+            width: fit-content;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        label {
+            vertical-align: top;
+        }
+
+        input,
+        textarea {
+            font-family: 'Source Code Pro', monospace;
+            margin: 5px 0;
+            width: 200px;
+        }
+
+        input[type=submit] {
+            border-radius: 3px;
+            border: none;
+            padding: 3px;
+            background: #fd7cb2;
+        }
+
+        form.amp-form-submit-success [submit-success] {
+            color: green;
+        }
+
+        form.amp-form-submit-error [submit-error] {
+            color: red;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 784px) {
+
+            section,
+            main {
+                flex-wrap: wrap;
+            }
+
+            footer {
+                padding: 10px 20px;
+                justify-content: start;
+            }
+
+            form {
+                margin: 0;
+            }
+        }
+
+        @media (min-width: 784px) {
+            aside {
+                height: 100vh;
+            }
+
+            #sidebar-toggle {
+                display: none;
+            }
+        }
+    </style>
 
     <link rel="canonical" href=".">
     <title>Larissa is online</title>
@@ -323,98 +342,116 @@
                         on="tap:page-who.scrollTo,AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})"><span
                             class="menu-pre-text">Larissa <span class="reserved-word">is </span></span>... Who?</a></li>
                 <li [class]="pageProfessional ? 'active' : 'inactive'"><a href="#page-professional" class="menu-link"
-                        on="tap:page-professional.scrollTo,AMP.setState({pageWho: false, pageProfessional: true, pageTechie: false, pageArtistic: false})"><span
-                            class="menu-pre-text">Larissa <span class="reserved-word">is
-                            </span></span>a professional</a></li>
+                        on="tap:page-professional.scrollTo,AMP.setState({pageWho: false, pageProfessional: true, pageTechie: false, pageSpeaker: false, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is a
+                            </span></span> professional</a></li>
+                <li [class]="pageSpeaker ? 'active' : 'inactive'"><a href="#page-speaker" class="menu-link"
+                        on="tap:page-speaker.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageSpeaker: true, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is a
+                            </span></span>speaker</a></li>
                 <li [class]="pageTechie ? 'active' : 'inactive'"><a href="#page-techie" class="menu-link"
-                        on="tap:page-techie.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: true, pageArtistic: false})"><span
-                            class="menu-pre-text">Larissa <span class="reserved-word">is
-                            </span></span>a techie</a></li>
+                        on="tap:page-techie.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: true, pageSpeaker: false, pageArtistic: false})"><span
+                            class="menu-pre-text">Larissa <span class="reserved-word">is a
+                            </span></span>techie</a></li>
                 <li [class]="pageArtistic ? 'active' : 'inactive'"><a href="#page-artistic" class="menu-link"
-                        on="tap:page-artistic.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageArtistic: true})"><span
+                        on="tap:page-artistic.scrollTo,AMP.setState({pageWho: false, pageProfessional: false, pageTechie: false, pageSpeaker: false, pageArtistic: true})"><span
                             class="menu-pre-text">Larissa <span class="reserved-word">is
                             </span></span>artistic</a></li>
             </ul>
         </nav>
     </amp-sidebar>
-    <amp-script data-ampdevmode script="menu-highlight" layout="container">
-        <section>
-            <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
-            <aside id="target-element-desktop" class="desktop-sidebar"></aside>
-            <main>
-                <article id="page-who">
-                    <h1>Larissa Barra</h1>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                </article>
+    <section>
+        <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
+        <aside id="target-element-desktop" class="desktop-sidebar"></aside>
+        <main>
+            <article id="page-who">
+                <h1>Larissa Barra</h1>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+            </article>
 
-                <article id="page-professional">
-                    <h1>Larissa Barra</h1>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                </article>
+            <article id="page-professional">
+                <h1>Larissa Barra</h1>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+            </article>
 
-                <article id="page-techie">
-                    <h1>A techie</h1>
-                    <p>In the information era, a techie shares knowledge. I like to do that by speaking in meet-ups and
-                        conferences about many different topics. I like to think that there's no talk too simple or too
-                        advanced - if one person in the audience learns something, then that talk was worth it.</p>
-                    <p>Public speaking, as a woman in IT, is one of my favourite ways to challenge some boundaries:
-                        personal ones, constantly proving to myself that I am knowledgeable enough to do it, even not
-                        knowing everything; and industry ones, showing that women are as technical as anyone else.</p>
-                    <h2>Here are some videos:</h2>
-                    <h3>NSSpain - remote edition 2020 (Q/A <a
-                        href="https://larissabarra.medium.com/nsspain-2020-q-a-about-platform-teams-aaee64b8a3e1" target="_blank">here</a>)</h3>
-                    <amp-vimeo data-videoid="479879724" layout="responsive" width="16" height="9"></amp-vimeo>
-                    <h3>CocoaHeads Brazil - Belo Horizonte, December 2019 (in Portuguese)</h3>
-                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="pyhQnYPR3wg">
-                    </amp-youtube>
-                    <h3>BA: Swiftable - Buenos Aires, November 2019</h3>
-                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="lU6ywuZRw0U">
-                    </amp-youtube>
-                    <h3>NSBrazil - São Paulo, November 2019</h3>
-                    <amp-youtube width="480" height="270" layout="responsive" data-videoid="OgiWj-Ygrig">
-                    </amp-youtube>
-                </article>
+            <article id="page-speaker">
+                <h1>Public speaking</h1>
+                <p>In the information era, people share knowledge. I like to do that by speaking in meet-ups and
+                    conferences about many different topics. I like to think that there's no talk too simple or too
+                    advanced - if one person in the audience learns something, then that talk was worth it.</p>
+                <p>Public speaking, as a woman in IT, is one of my favourite ways to challenge some boundaries:
+                    personal ones, constantly proving to myself that I am knowledgeable enough to do it, even not
+                    knowing everything; and industry ones, showing that women are as technical as anyone else.</p>
+                <h2>Here are some videos:</h2>
+                <h3>NSSpain - remote edition 2020 (Q/A <a
+                        href="https://larissabarra.medium.com/nsspain-2020-q-a-about-platform-teams-aaee64b8a3e1"
+                        target="_blank">here</a>)</h3>
+                <amp-vimeo data-videoid="479879724" layout="responsive" width="16" height="9"></amp-vimeo>
+                <h3>CocoaHeads Brazil - Belo Horizonte, December 2019 (in Portuguese)</h3>
+                <amp-youtube width="480" height="270" layout="responsive" data-videoid="pyhQnYPR3wg">
+                </amp-youtube>
+                <h3>BA: Swiftable - Buenos Aires, November 2019</h3>
+                <amp-youtube width="480" height="270" layout="responsive" data-videoid="lU6ywuZRw0U">
+                </amp-youtube>
+                <h3>NSBrazil - São Paulo, November 2019</h3>
+                <amp-youtube width="480" height="270" layout="responsive" data-videoid="OgiWj-Ygrig">
+                </amp-youtube>
+            </article>
 
-                <article id="page-artistic">
-                    <h1>Larissa Barra</h1>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                    <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                            class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                        metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                        going
-                        back to its founding by the Romans, who named it Londinium.</p>
-                </article>
-            </main>
-        </section>
-    </amp-script>
+            <article id="page-techie">
+                <h1>A techie</h1>
+                <p>I'm full of hobbies. Occasionally, coding is one of them. Although my passion for technology is
+                    manifested (outside of work) more frequently through public speaking, I have the odd project to
+                    show.</p>
+                <p>This personal page is one example: I've decided to experiment with AMP, and this is the result.
+                    The code for <span class="reserved-word"><a href="https://github.com/larissabarra/Larissa-is-Online"
+                            target="_blank">Larissa-is-Online</a></span> be found on my GitHub.</p>
+                <p>I've also decided to play with SwiftUI (finally). <span class="reserved-word"><a
+                            href="https://github.com/larissabarra/Wome" target="_blank">Womė</a></span> is an app
+                    I've decided to build for myself to track signs my body gives me every month - both for learning
+                    and because I'd rather not share this data (no small print on my terms and conditions). It's
+                    open source and hopefully on the App Store soon!</p>
+            </article>
+
+            <article id="page-artistic">
+                <h1>Larissa Barra</h1>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
+                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
+                    metropolitan area of over 13 million inhabitants.</p>
+                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
+                    going
+                    back to its founding by the Romans, who named it Londinium.</p>
+            </article>
+        </main>
+    </section>
 
     <footer amp-fx="float-in-bottom">
         <form method="post" action-xhr="contact.php" target="_top">
