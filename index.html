@@ -203,6 +203,7 @@
             flex: 100%;
             flex-basis: 100%;
             min-height: 100vh;
+            min-height: -webkit-fit-content;
             line-height: 1.5;
         }
 
@@ -287,14 +288,7 @@
             color: red;
         }
 
-        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
         @media (max-width: 784px) {
-
-            section,
-            main {
-                flex-wrap: wrap;
-            }
-
             footer {
                 padding: 10px 20px;
                 justify-content: start;
