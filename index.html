@@ -124,6 +124,24 @@
             top: calc(50% - 250px);
         }
 
+        header {
+            width: 100vw;
+            display: flex;
+            justify-content: space-around;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            top: 0;
+            height: 10vh;
+        }
+
+        header a {
+            padding: 20px 0;
+            color: #fd7cb2;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
         section {
             display: flex;
             max-width: 80%;
@@ -139,7 +157,7 @@
             flex: 65%;
             display: flex;
             flex-direction: column;
-            padding: 20px 0;
+            padding: 10vh 0;
         }
 
         #sidebar-toggle {
@@ -354,24 +372,18 @@
             </ul>
         </nav>
     </amp-sidebar>
+    <header>
+        <a href="#page-who" on="tap:page-who.scrollTo,AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})">
+            <img src="/icon.svg" /> Larissa Barra is online
+        </a>
+    </header>
     <section>
         <button id="sidebar-toggle" on="tap:sidebar.toggle">☰</button>
         <aside id="target-element-desktop" class="desktop-sidebar"></aside>
         <main>
             <article id="page-who">
                 <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                    going
-                    back to its founding by the Romans, who named it Londinium.</p>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                    going
-                    back to its founding by the Romans, who named it Londinium.</p>
+                <p></p>
             </article>
 
             <article id="page-professional">
