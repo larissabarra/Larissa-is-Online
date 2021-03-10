@@ -243,6 +243,12 @@
             font-family: 'Source Code Pro', monospace;
         }
 
+        h1::before {
+            margin-top: 15vh;
+            display: block;
+            content: '';
+        }
+
         article h2 {
             color: #fd7cb2;
             font-size: 1em;
@@ -355,7 +361,7 @@
 <body>
     <amp-sidebar id="sidebar" class="desktop-sidebar" layout="nodisplay" side="left">
         <nav toolbar="(min-width: 784px)" toolbar-target="target-element-desktop">
-            <ul>
+            <ul style="display: block;">
                 <li [class]="pageWho ? 'active' : 'inactive'" class="active"><a href="#page-who"
                         class="active menu-link"
                         on="tap:page-who.scrollTo,AMP.setState({pageWho: true, pageProfessional: false, pageTechie: false, pageArtistic: false})"><span
