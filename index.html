@@ -92,13 +92,20 @@
     </noscript>
     <style amp-custom>
         :root {
-            --color-primary: #53b1ca;
-            --color-text-light: #fff;
+            --backgroung-light: #fff;
+            --colour-primary: #53b1ca;
+            --colour-highlight: #fd7cb2;
+            --colour-text-dark: #454545;
+            --colour-text-main: #999;
+            --colour-text-light: #bbb;
+
+            --font-family-content: 'Montserrat', sans-serif;
+            --font-family-emphasis: 'Source Code Pro', monospace;
 
             --space-2: 2rem;
 
             --box-shadow-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-                0 1px 1px -1px rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                0 1px 1px -1px rgba(150, 117, 117, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
         }
 
         * {
@@ -106,8 +113,8 @@
         }
 
         body {
-            font-family: 'Source Code Pro', monospace;
-            color: #666;
+            font-family: var(--font-family-content);
+            color: var(--colour-text-main);
         }
 
         a {
@@ -115,7 +122,7 @@
         }
 
         #sidebar {
-            background: #fff;
+            background: var(--backgroung-light);
             padding: 20px;
         }
 
@@ -128,17 +135,19 @@
             width: 100vw;
             display: flex;
             justify-content: space-around;
-            background: #fff;
+            background: var(--backgroung-light);
             border-bottom: 1px solid #eee;
             position: fixed;
             top: 0;
             height: 10vh;
             padding: 0 20px;
+            z-index: 1;
+            font-family: var(--font-family-emphasis);
         }
 
         header a {
             padding: 20px 0;
-            color: #fd7cb2;
+            color: var(--colour-highlight);
             font-weight: bold;
             font-size: 1.3em;
             align-self: center;
@@ -164,11 +173,10 @@
             flex: 65%;
             display: flex;
             flex-direction: column;
-            padding: 10vh 0;
         }
 
         #sidebar-toggle {
-            color: #fff;
+            color: var(--backgroung-light);
             font-size: 1.4em;
             box-shadow: var(--box-shadow-1);
             width: 50px;
@@ -191,7 +199,8 @@
         }
 
         nav a {
-            color: #bbb;
+            color: var(--colour-text-light);
+            font-family: var(--font-family-emphasis);
         }
 
         li {
@@ -210,18 +219,17 @@
         }
 
         li.active a {
-            color: #53b1ca;
+            color: var(--colour-primary);
             font-weight: bold;
             padding: 0 3px;
         }
 
-        li.active .reserved-word {
-            color: #fd7cb2;
+        .reserved-word {
+            color: var(--colour-highlight);
         }
 
-        .menu-pre-text {
-            font-size: small;
-            color: #bbb;
+        li:not(.active) .reserved-word {
+            color: var(--colour-text-light);
         }
 
         article {
@@ -239,8 +247,8 @@
         }
 
         article h1 {
-            color: #53b1ca;
-            font-family: 'Source Code Pro', monospace;
+            color: var(--colour-primary);
+            font-family: var(--font-family-emphasis);
         }
 
         h1::before {
@@ -250,14 +258,14 @@
         }
 
         article h2 {
-            color: #fd7cb2;
+            color: var(--colour-highlight);
+            font-family: var(--font-family-emphasis);
             font-size: 1em;
         }
 
         article h3 {
-            color: #333;
+            color: var(--colour-text-dark);
             font-size: 0.9em;
-            font-family: 'Montserrat', sans-serif;
         }
 
         article h3::before {
@@ -266,17 +274,12 @@
             display: block;
         }
 
-        article p {
-            color: #999;
-            font-family: 'Montserrat', sans-serif;
-        }
-
         article a {
-            color: #fd7cb2;
+            color: var(--colour-highlight);
         }
 
         footer {
-            background: #fff;
+            background: var(--backgroung-light);
             border-top: 1px solid #eee;
             padding: 10px;
             width: 100vw;
@@ -308,7 +311,7 @@
             border-radius: 3px;
             border: none;
             padding: 3px;
-            background: #fd7cb2;
+            background: var(--colour-highlight);
         }
 
         form.amp-form-submit-success [submit-success] {
@@ -317,6 +320,153 @@
 
         form.amp-form-submit-error [submit-error] {
             color: red;
+        }
+
+        .cd-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 10%;
+            border-radius: 2px;
+        }
+
+        .cd-container::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /* -------------------------------- Main components -------------------------------- */
+        #cd-timeline {
+            position: relative;
+            padding: 2em 0;
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        #cd-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25px;
+            height: 100%;
+            width: 4px;
+            background: var(--colour-highlight);
+            border-radius: 4px;
+        }
+
+        .cd-timeline-block {
+            position: relative;
+            margin: 2em 0;
+        }
+
+        .cd-timeline-block:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .cd-timeline-block:first-child {
+            margin-top: 0;
+        }
+
+        .cd-timeline-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .cd-timeline-img {
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #e24989, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .cd-timeline-img {
+            background: var(--colour-highlight);
+        }
+
+        .cd-timeline-content {
+            position: relative;
+            margin-left: 60px;
+            margin-right: 30px;
+            border-radius: 4px;
+            padding: 1em;
+            box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.08);
+            background: rgba(222, 222, 222, 0.2);
+        }
+
+        .cd-timeline-content .timeline-content-info {
+            padding: 5px 10px;
+            color: var(--colour-text-light);
+            font-size: 12px;
+            background: var(--backgroung-light);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
+            border-radius: 2px;
+        }
+
+        .cd-timeline-content .timeline-content-info i {
+            margin-right: 5px;
+        }
+
+        .cd-timeline-content .timeline-content-info .timeline-content-info-title,
+        .cd-timeline-content .timeline-content-info .timeline-content-info-date {
+            display: block;
+        }
+
+        .cd-timeline-content .content-skills {
+            font-size: 12px;
+            padding: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cd-timeline-content .content-skills li {
+            border-radius: 2px;
+            display: inline-block;
+            padding: 2px 10px;
+            color: var(--backgroung-light);
+            background: var(--colour-primary);
+            margin: 3px 2px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .cd-timeline-content:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .cd-timeline-content h2 {
+            color: var(--colour-primary);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .cd-timeline-content p {
+            color: var(--colour-text-light);
+            font-size: 13px;
+            font-size: 0.8125rem;
+        }
+
+        .cd-timeline-content p {
+            margin: 1em 0;
+            line-height: 1.6;
+        }
+
+        .cd-timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            right: 100%;
+            height: 0;
+            width: 0;
+            border: 7px solid transparent;
+            border-right: 7px solid rgba(222, 222, 222, 0.7);
         }
 
         @media (max-width: 784px) {
@@ -330,6 +480,14 @@
             }
         }
 
+        @media (max-width: 500px) {
+            .cd-timeline-content .timeline-content-info .timeline-content-info-title,
+            .cd-timeline-content .timeline-content-info .timeline-content-info-date {
+                display: block;
+                width: 100%;
+            }
+        }
+
         @media (min-width: 784px) {
             aside {
                 height: 100vh;
@@ -337,6 +495,87 @@
 
             #sidebar-toggle {
                 display: none;
+            }
+
+            .cd-timeline-content h2 {
+                font-size: 20px;
+                font-size: 1.25rem;
+            }
+
+            .cd-timeline-content p {
+                font-size: 16px;
+                font-size: 1rem;
+            }
+
+            .cd-timeline-content .cd-read-more {
+                font-size: 14px;
+                font-size: 0.875rem;
+            }
+        }
+
+        @media only screen and (min-width: 1170px) {
+            #cd-timeline {
+                margin-top: 3em;
+                margin-bottom: 3em;
+            }
+
+            #cd-timeline::before {
+                left: 50%;
+                margin-left: -2px;
+            }
+
+            .cd-timeline-block {
+                margin: 4em 0;
+            }
+
+            .cd-timeline-block:first-child {
+                margin-top: 0;
+            }
+
+            .cd-timeline-block:last-child {
+                margin-bottom: 0;
+            }
+
+            .cd-timeline-img {
+                width: 30px;
+                height: 30px;
+                left: 50%;
+                margin-left: -15px;
+                margin-top: 15px;
+                /* Force Hardware Acceleration in WebKit */
+                -webkit-transform: translateZ(0);
+                -webkit-backface-visibility: hidden;
+            }
+
+            .cd-timeline-content {
+                color: white;
+                margin-left: 0;
+                padding: 1.6em;
+                width: 43%;
+                margin: 0 1%;
+            }
+
+            .cd-timeline-content::before {
+                top: 24px;
+                left: 100%;
+                border-color: transparent;
+                border-left-color: rgba(222, 222, 222, 0.7);
+            }
+
+            .cd-timeline-block:nth-child(even) .cd-timeline-content {
+                float: right;
+            }
+
+            .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+                top: 24px;
+                left: auto;
+                right: 100%;
+                border-color: transparent;
+                border-right-color: #333c42;
+            }
+
+            .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+                float: right;
             }
         }
     </style>
@@ -421,19 +660,244 @@
             </article>
 
             <article id="page-professional">
-                <h1>Larissa Barra</h1>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                    going
-                    back to its founding by the Romans, who named it Londinium.</p>
-                <p>London <span class="reserved-word">is </span>the capital city of England. It <span
-                        class="reserved-word">is </span>the most populous city in the United Kingdom, with a
-                    metropolitan area of over 13 million inhabitants.</p>
-                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history
-                    going
-                    back to its founding by the Romans, who named it Londinium.</p>
+                <h1>Me, an engineer</h1>
+                <p>Since I was quite young, I knew I was going to be in STEM. At the age of 8 I used to say I was going
+                    to be a Mathematician (oh, sweet child), then decided to change my degree to Physics at around 10 (I
+                    really didn't know what was waiting for me). At 12 I had embraced an artistic side and wanted to
+                    be an Architect, not knowing that I would end up becoming one - just not one that designs buildings.
+                </p>
+                <p>Here is my <a href="https://www.linkedin.com/in/larissabconde/" target="_blank">LinkedIn</a>, and a
+                    list of my professional and academic experiences, in cronological order but with <spam
+                        class="reserved-word"><em>sort=desc
+                        </em></spam>
+                </p>
+                <div id="cd-timeline" class="cd-container">
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div>
+
+                        <div class="cd-timeline-content">
+                            <h2>Google</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Customer Solutions Engineer
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Jan 2020 - Present
+                                </span>
+                            </div>
+                            <p>At Google I develop custom advertisement solutions for large retail clients in the UK.
+                                Often that involves data pipelines and data analysis.</p>
+                            <ul class="content-skills">
+                                <li>Consulting</li>
+                                <li>Cloud</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-movie">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>ThoughtWorks</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Senior Consultant Developer
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Jul 2017 - Dec 2019
+                                </span>
+                            </div>
+                            <p>Most of my time at ThoughtWorks was dedicated to building mobile applications. I've
+                                started in mobile as a graduate level consultant around April 2018, and progressed until
+                                leaving as a senior in the end of 2019.</p>
+                            <p>I was part of feature and platform teams, and had the chance to work with the
+                                frontend and the infrastructure of a mobile product, along with the whole delivery
+                                process.</p>
+                            <ul class="content-skills">
+                                <li>Swift</li>
+                                <li>iOS</li>
+                                <li>CI/CD</li>
+                                <li>Code Quality</li>
+                                <li>Facilitation</li>
+                                <li>Consulting</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Bachelor in Computer Engineering</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Federal Centre for Technological Education
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    2012 - 2017
+                                </span>
+                            </div>
+                            <p>I didn't choose Architecture after all. My Bachelor in Computer Engineering was very
+                                broad. During the five years - plus one extra year abroad, studying at the University of
+                                Surrey - I learnt a lot about software and hardware, ranging from Control Automation
+                                to Compilers. I also took modules related to Philosophy of Technology and Psychology
+                                of Work.</p>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Sydle</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Trainee Software Engineer
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Oct 2016 - Jun 2017
+                                </span>
+                            </div>
+                            <p>At Sydle I worked mostly at the frontend of an Enterprise Content Management (ECM)
+                                application. I was introduced to event-driven architectures and learnt Angular.</p>
+                            <ul class="content-skills">
+                                <li>Angular</li>
+                                <li>Java</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Vallourec</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Presidency Board Intern
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Dec 2015 - Sept 2016
+                                </span>
+                            </div>
+                            <p>Vallourec is a steel making multinational, and I spent my time there coding in a room
+                                close to the blast furnace, that I had to wear PPE to get to.</p>
+                            <p>The forest management Java application that I worked on was not the main learning
+                                experience of this role.
+                                I was part of the team of the Presidency Board's interns. We
+                                were a self managed team, and that meant doing our own sourcing, interviewing
+                                candidates, managing our time and projects and periodically showcasing our progress to
+                                the high management of the company.</p>
+                            <ul class="content-skills">
+                                <li>Interviewing</li>
+                                <li>Team management</li>
+                                <li>Project management</li>
+                                <li>Presentation</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>University of Surrey</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Exchange year
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Sept 2014 - Sept 2015
+                                </span>
+                            </div>
+                            <p>My year at Surrey was an incredible experience. Not only did it help me solidify my
+                                English
+                                skills, I had the opportunity to get to know a different model of education in a
+                                multicultural environment.</p>
+                            <p>Surrey was where my interest for mobile engineering first started: I took many frontend
+                                focused modules, and evolved my web development to include - and prioritise - the mobile
+                                experience.</p>
+                            <ul class="content-skills">
+                                <li>Interviewing</li>
+                                <li>Team management</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Ao Seu Lado</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Web development intern
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    Oct 2010 - Aug 2014
+                                </span>
+                            </div>
+                            <p>My first professional experience was interning to my parents' small company. We built and
+                                hosted websites, and I learnt and contributed a lot.</p>
+                            <p>I learnt web technologies and discovered my passion for frontend, while bringing in
+                                the actual coding skills I was learning in my technician, and later bachelor degrees.
+                            </p>
+                            <ul class="content-skills">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>PHP</li>
+                            </ul>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img">
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Technician in Information Technology</h2>
+                            <div class="timeline-content-info">
+                                <span class="timeline-content-info-title">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                                    Federal Centre for Technological Education
+                                </span>
+                                <span class="timeline-content-info-date">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    2009 - 2011
+                                </span>
+                            </div>
+                            <p>I've started in IT at 14 turning 15, studying in a technical education highschool.
+                                Learning to code in the morning then studying regular modules - such as Portuguese or
+                                History - in the afternoon was definitely an interesting experience.</p>
+                            <p>By the time I graduated, I was ready for University and also had my Technician degree
+                                that
+                                allowed me to work in IT, which I've been doing since I was 16.</p>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+                </div> <!-- cd-timeline -->
             </article>
 
             <article id="page-speaker">
